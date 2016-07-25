@@ -18196,6 +18196,10 @@ with pkgs;
       NetOpenSSH NetSNMP LWP IOTty perl NetDNS NetLDAP;
   };
 
+  smp = callPackage ../applications/audio/smp {
+    inherit stdenv bash;
+  };
+
   snapraid = callPackage ../tools/filesystems/snapraid { };
 
   soundOfSorting = callPackage ../misc/sound-of-sorting { };
