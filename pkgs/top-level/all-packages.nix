@@ -854,6 +854,8 @@ with pkgs;
 
   dibbler = callPackage ../tools/networking/dibbler { };
 
+  diana = callPackage ../tools/networking/diana { };
+
   ding = callPackage ../applications/misc/ding {
     aspellDicts_de = aspellDicts.de;
     aspellDicts_en = aspellDicts.en;
