@@ -14905,6 +14905,8 @@ with pkgs;
 
   notmuch-addrlookup = callPackage ../applications/networking/mailreaders/notmuch-addrlookup { };
 
+  notmuch-web-bin = callPackage ../applications/networking/mailreaders/notmuch-web-bin { };
+
   # Open Stack
   nova = callPackage ../applications/virtualization/openstack/nova.nix { };
   keystone = callPackage ../applications/virtualization/openstack/keystone.nix { };
