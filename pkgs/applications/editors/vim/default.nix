@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, callPackage, ncurses, gettext, pkgconfig
+{ stdenv, fetchurl, callPackage, ncurses, gettext, pkgconfig, perl, lua, python, ruby
 # default vimrc
 , vimrc ? fetchurl {
     name = "default-vimrc";
@@ -16,13 +16,17 @@ stdenv.mkDerivation rec {
 
   inherit (common) version src postPatch hardeningDisable enableParallelBuilding meta;
 
-  buildInputs = [ ncurses pkgconfig ]
+  buildInputs = [ ncurses pkgconfig perl lua python ruby ]
     ++ stdenv.lib.optionals stdenv.isDarwin [ Carbon Cocoa ];
   nativeBuildInputs = [ gettext ];
 
   configureFlags = [
     "--enable-multibyte"
     "--enable-nls"
+    "--enable-perlinterp"
+    "--enable-luainterp"
+    "--enable-pythoninterp"
+    "--enable-rubyinterp"
   ];
 
   postInstall = ''
